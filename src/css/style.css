@@ -1,1 +1,12 @@
 /* YOUR CSS HERE */
+menu{
+    display: flex;
+}
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.product-list img{
+    width: 50%;
+}
