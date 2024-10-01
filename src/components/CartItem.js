@@ -8,7 +8,7 @@ export class CartItem extends Component {
   }
 
   handleUpdate(id) {
-    //this.props.cartContext.updateTodo(id)
+    this.props.cartContext.updateQuantity(id)
   }
 
   handleRemove(id) {
@@ -18,15 +18,24 @@ export class CartItem extends Component {
   render() {
     const itemElement = document.createElement('li')
 
-    console.log(this.props)
+    //console.log(this.props)
     itemElement.innerHTML = `
-      <span>${this.props.item.title}</span>
-      <div>
-        <button id='btn-delete'>Delete</button>
+      <span class="cart-item-title">${this.props.item.title}</span>
+      <div class="detail-info">
+        <div class="image-area">
+          <img src="${this.props.item.image}"/>
+        </div>
+        <div class="info-area">
+          <div>
+            <span>quantity : ${this.props.item.quantity}</span>
+            <button id="btn-update">+</button><br>
+            <button id='btn-delete'>Delete</button>
+          </div>
+        </div>
       </div>
     `
 
-    //todoElement.querySelector('#btn-complete').addEventListener('click', () => this.handleUpdate(this.props.todo.id))
+    itemElement.querySelector('#btn-update').addEventListener('click', () => this.handleUpdate(this.props.item.productId))
     itemElement.querySelector('#btn-delete').addEventListener('click', () => this.handleRemove(this.props.item.id))
 
     return itemElement;

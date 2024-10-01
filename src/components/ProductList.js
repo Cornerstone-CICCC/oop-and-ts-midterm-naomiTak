@@ -13,7 +13,6 @@ export class ProductList extends Component {
       .then(data => {
         console.log(data)
         this.state.products = data
-        console.log(this)
         container.appendChild(this.render())
       })
       .catch(error => console.error('Error retrieving data:', error))
@@ -30,7 +29,7 @@ export class ProductList extends Component {
         })
       productList.appendChild(productItem.render())
     })
-    
+
     return productList;
   }
 }

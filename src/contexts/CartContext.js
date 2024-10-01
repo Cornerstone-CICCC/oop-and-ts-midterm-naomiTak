@@ -12,6 +12,7 @@ export class CartContext {
     addProduct(product){
         const newProduct = {
             id: CartContext.id++,
+            quantity: 1,
             productId: product.id,
             title: product.title,
             price: product.price,
@@ -23,7 +24,14 @@ export class CartContext {
         this.notifyListeners()
         
     }
-    updateQuantity(id){}
+    updateQuantity(productId){
+        this.cart.forEach(item =>{
+                if(item.productId === productId){
+                    item.quantity++
+                }
+        })
+        this.notifyListeners()
+    }
 
     removeProduct(id){
         this.cart = this.cart.filter(cart => cart.id !== id)

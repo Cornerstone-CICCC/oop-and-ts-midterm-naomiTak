@@ -4,16 +4,10 @@ export class Header extends Component {
   render() {
     const header = document.createElement('header')
     header.innerHTML = `
-      <div>LOGO</div>
-      <nav>
-        <menu>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-          <button>Cart</button>
-        </menu>
-      </nav>
+      <div class="header-area">
+        <img class="logo"src="../image/icon1.svg">
+        <span class="page-title"><span class="underline">Shoping</span>
+      </div>
     `
 
     return header;

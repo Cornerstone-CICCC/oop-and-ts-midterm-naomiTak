@@ -2,6 +2,7 @@ import { Component } from "../common/Component.js";
 import { Header } from "../components/Header.js"
 import { ProductList } from "../components/ProductList.js"
 import { CartList } from "../components/CartList.js"
+import { Footer } from "../components/Footer.js"
 
 export class App extends Component {
   render() {
@@ -11,7 +12,7 @@ export class App extends Component {
       <div class="header_wrapper"></div>
       <div class="content_wrapper">
         <main>
-          <h1>Welcome to my cool shop</h1>
+          <h3 class="heading">Best seller</h3>
         </main>
         <aside></aside>
       </div>
@@ -20,11 +21,13 @@ export class App extends Component {
     const header = new Header({ cartContext: this.props.cartContext }).render()
     const productList = new ProductList({ cartContext: this.props.cartContext })
     const cart = new CartList({ cartContext: this.props.cartContext }).render()
+    const footer = new Footer().render()
 
 
     appContainer.querySelector('.header_wrapper').appendChild(header)
     productList.mount(appContainer.querySelector('main'))
     appContainer.querySelector('aside').appendChild(cart)
+    appContainer.querySelector('.footer_wrapper').appendChild(footer)
 
     return appContainer;
   }
